@@ -20,19 +20,21 @@ public class Main {
     vasya.addPizzaToOrder(new CheeseDecorator(new MargheritaPizza(Size.LARGE)));
 
     try {
+      //Подтверждаем заказ
       var vasyaOrder = vasya.confirmOrder();
+      //Отправляем заказ на кухню
       pizzaKitchen.prepareOrder(vasyaOrder);
     } catch (KitchenOverloadException e) {
       System.out.println("Error: " + e.getMessage());
     }
 
+    //Если не убрать аню, упадет ошибка
     Customer anya = new Customer("Аня");
     anya.createOrder();
     anya.addPizzaToOrder(new MargheritaPizza(Size.SMALL));
 
     try {
       var anyaOrder = anya.confirmOrder();
-      anya.confirmOrder();
       pizzaKitchen.prepareOrder(anyaOrder);
     } catch (KitchenOverloadException e) {
       System.out.println("Error: " + e.getMessage());

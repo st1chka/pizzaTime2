@@ -25,7 +25,7 @@ public class PizzaKitchen implements Kitchen {
 
   @Override
   public void prepareOrder(Order order) throws KitchenOverloadException {
-    if (currentOrders > maxOrders) {
+    if (currentOrders >= maxOrders) {
       throw new KitchenOverloadException(
           "Кухня устала делать заказы, надо пойти на перекур, заказов выполнено: " + maxOrders);
     }
